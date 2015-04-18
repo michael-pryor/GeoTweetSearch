@@ -1,0 +1,59 @@
+.marker-cluster-follower-location-small {
+    background-color: rgb(181, 226, 140);
+}
+.marker-cluster-follower-location-small div {
+    background-color: rgb(110, 204, 57);
+}
+
+.marker-cluster-follower-location-medium {
+    background-color: rgb(241, 211, 87);
+}
+.marker-cluster-follower-location-medium div {
+    background-color: rgb(240, 194, 12);
+}
+
+.marker-cluster-follower-location-large {
+    background-color: rgb(253, 156, 115);
+}
+.marker-cluster-follower-location-large div {
+    background-color: rgb(241, 128, 23);
+}
+
+.marker-cluster-follower-location-group-small {
+    background-color: rgba(181, 226, 140, 0.6);
+}
+.marker-cluster-follower-location-group-small div {
+    background-color: rgba(110, 204, 57, 0.6);
+}
+
+.marker-cluster-follower-location-group-medium {
+    background-color: rgba(241, 211, 87, 0.6);
+}
+.marker-cluster-follower-location-group-medium div {
+    background-color: rgba(240, 194, 12, 0.6);
+}
+
+.marker-cluster-follower-location-group-large {
+    background-color: rgba(253, 156, 115, 0.6);
+}
+.marker-cluster-follower-location-group-large div {
+    background-color: rgba(241, 128, 23, 0.6);
+}
+
+.marker-cluster-follower-location {
+    background-clip: padding-box;
+    border-radius: 20px;
+}
+.marker-cluster-follower-location div {
+    width: 35px;
+    height: 35px;
+    margin-left: 4px;
+    margin-top: 4px;
+
+    text-align: center;
+    border-radius: 16px;
+    font: 11.5px "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+.marker-cluster-follower-location span {
+    line-height: 33px;
+}

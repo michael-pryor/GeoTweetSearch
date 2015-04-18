@@ -1,0 +1,96 @@
+/* Main container is the container which holds all of the page contents */
+.main-container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 19px 29px 19px;
+    max-width: 1024px;
+    word-wrap: break-word;
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    border-radius: 5px;
+    border: 1px solid #e5e5e5;
+}
+
+/* A sub container resides inside the main container. It has a thin border around it and is self contained. */
+.sub-container {
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    border-radius: 5px;
+    padding: 24px 29px 24px;
+    margin: 15px 0 15px; /* twitter bootstrap seems to add right/left padding for us */
+    border: 1px solid #e5e5e5;
+}
+
+.sub-container-no-border {
+    padding: 24px 29px 24px;
+    margin: 15px 0 15px; /* twitter bootstrap seems to add right/left padding for us */
+    border: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding-bottom: 10px;
+    margin: 0;
+}
+
+/* If required a scroll bar will be provided */
+.scrollable {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.main-container {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 0;
+}
+
+body {
+    height: 90%;
+    margin-bottom: 20px;
+}
+
+/* A scroll bar will not be provided, text will be cut off */
+.scrollable-not {
+    overflow: hidden;
+}
+
+.scroll-padding {
+    padding-right: 30px;
+}
+
+.hidden {
+    display: none;
+}
+
+.center-text {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Set the right margin of divs to match the scroll bar width
+   so that the contents of the div is not shifted by the scroll bar. */
+.margin-right-normal {
+    margin-right: 12px;
+}
+
+.slider-description {
+    font-size: 12px; color: #729FCF; font-weight: bold;
+}
+
+.hideScrollbar {
+
+}
+
+.twitter-profile-image {
+    width: 48px;
+    height: 48px;
+    border-style:solid;
+    border-width:thin;
+
+    margin-bottom:10px;
+}
+
+.footer {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    color: darkgrey;
+}
