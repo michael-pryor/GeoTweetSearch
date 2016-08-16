@@ -6,7 +6,7 @@ function getTileUrl(cloudKey, server, zoom, x, y) {
     x = undefArg(x, '{x}');
     y = undefArg(y, '{y}');
 
-    return 'http://' + server + '.tile.cloudmade.com/' + cloudKey + '/997/256/' + zoom + '/' + x + '/' + y + '.png';
+    return 'http://a.tile.openstreetmap.org/' + zoom + '/' + x + '/' + y + '.png';
 }
 
 function setupMap($element, cloudKey, imageView) {
@@ -30,7 +30,7 @@ function setupMap($element, cloudKey, imageView) {
 
     L.tileLayer( getTileUrl(cloudKey),{   maxZoom: 18,
                                           styleId: STYLE_ID,
-                                          attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>' })
+                                          attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors' })
                 .addTo(theMap);
 
     return theMap;
