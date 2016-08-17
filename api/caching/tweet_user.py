@@ -473,9 +473,9 @@ def cursorItemsFromCache(instanceId, getCollectionFunc, placeId=None, epochMsSta
         findDic.update(typeSpecificQuery)
 
     if projection is None:
-        cursor = collection.find(findDic,timeout=False).hint(hint)
+        cursor = collection.find(findDic).hint(hint)
     else:
-        cursor = collection.find(findDic, projection.projection,timeout=False).hint(hint)
+        cursor = collection.find(findDic, projection.projection).hint(hint)
 
     if sortByTimestamp:
         cursor = cursor.sort([('timestamp', pymongo.ASCENDING)])

@@ -47,7 +47,7 @@ class WebApplicationTwitter(WebApplication):
         self.twitter_instances.tweet_provider = tweetQueue
 
 from gevent.pywsgi import WSGIServer
-from geventwebsocket import WebSocketHandler
+from geventwebsocket.handler import WebSocketHandler
 def startServer(ip, port, bottle_app):
     """ Start running server.
 

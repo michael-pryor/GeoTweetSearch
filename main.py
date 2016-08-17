@@ -1,6 +1,3 @@
-from api.core.utility import redirectOutputToLogger
-redirectOutputToLogger()
-
 __author__ = 'Michael Pryor'
 
 if __name__ == '__main__':

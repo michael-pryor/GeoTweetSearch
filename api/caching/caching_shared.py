@@ -35,7 +35,7 @@ def getDatabase():
         else:
             writeConcern = 0
 
-        client = MongoClient(Configuration.MONGO_DB_IP, Configuration.MONGO_DB_PORT, w=writeConcern, socketTimeoutMS=Configuration.MONGO_OPERATION_TIMEOUT, connectTimeoutMS=Configuration.MONGO_CONNECTION_TIMEOUT, use_greenlets=True)
+        client = MongoClient(Configuration.MONGO_DB_IP, Configuration.MONGO_DB_PORT, w=writeConcern, socketTimeoutMS=Configuration.MONGO_OPERATION_TIMEOUT, connectTimeoutMS=Configuration.MONGO_CONNECTION_TIMEOUT)
 
     if database is None:
         database = client.__getattr__(Configuration.MONGO_DB_DATABASE_NAME)

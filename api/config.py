@@ -129,7 +129,7 @@ class Configuration:
     TWITTER_USERS_PER_ID_LOOKUP_RATE = 15
 
     # Specifies whether bottle should operate in debug mode.
-    BOTTLE_DEBUG = True
+    BOTTLE_DEBUG = False
 
     # Maximum number of characters we display of the keywords list
     # in a short description of instance, this description is used
