@@ -62,24 +62,5 @@ def unconsumeCode(code):
 if __name__ == '__main__':
     resetCodeConsumerCounts()
     getInstanceCodeCollection().remove()
-    theCode = getCode(2)
-    addCode(theCode+'1',4)
-    addCode(theCode+'2',2)
-
-    print consumeCode(theCode)
-    print consumeCode(theCode)
-    print consumeCode(theCode)
-    print consumeCode(theCode)
-
-
-    print consumeCode(theCode+'1')
-    print consumeCode(theCode+'1')
-    print consumeCode(theCode+'1')
-    print consumeCode(theCode+'1')
-    print consumeCode(theCode+'1')
-    print consumeCode(theCode+'1')
-    print consumeCode(theCode+'1')
-    print consumeCode(theCode+'1')
-    print consumeCode(theCode+'2')
-
-    print consumeCode(theCode+'3')
+    theCode = getCode(1)
+    print theCode

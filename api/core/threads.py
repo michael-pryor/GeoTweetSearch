@@ -71,6 +71,10 @@ class TwitterThread(BaseThread):
         self.log_num_dropped_timer = Timer(Configuration.LOG_DROP_AMOUNT_FREQ_MS,False)
 
     def _onFailure(self, e):
+        if not self.twitter_session.parent_instance.enable_shutdown_after_no_usage:
+            logger.error("Failure limit reached on instance, but not shutting it down because it is a core instance")
+            return
+
         logger.error('Twitter stream thread has failed for instance %s, shutting down instance' % self.twitter_session.instance_key)
         self.twitter_session.parent_instance.shutdownInstance()
         super(TwitterThread,self)._onFailure(e)
