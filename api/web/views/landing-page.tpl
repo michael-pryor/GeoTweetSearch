@@ -49,7 +49,10 @@
                         <div class="span12">
                             <h4>Welcome</h4>
                             <p>Welcome to GeoTweetSearch! This website is a powerful tool for analysing Twitter streams. To get started <a href="{{website_root}}/oauth/sign_in">create a search stream</a> or view one below.</p>
-                            <p>You can read a comprehensive report on this project <a href="{{static_root}}/report.pdf">here</a>.</p>
+                            <p>Search streams that are not used (nobody visits them) will be shut down after {{maxInactiveTime}}. Search streams (that are used) will be restarted after {{maxTotalTime}}, and all data wiped; this is to prevent our servers from running out of storage.</p>
+                            <p>You can read a comprehensive report on the project <a href="{{static_root}}/report.pdf">here</a>, and the full source code for the project is available <a href="https://github.com/watfordxp/GeoTweetSearch">here</a>.</p>
+                            <br>
+                            <p>If you want to run a search stream for longer, or have questions, please email me at <a href="mailto:pryor.michael@gmail.com">pryor.michael@gmail.com</a>.</p>
                             <br>
                         </div>
                     </div>

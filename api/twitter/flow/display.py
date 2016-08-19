@@ -404,6 +404,34 @@ class LandingPage(Display):
     def getLandingPageLink(pageNum):
         return Display.addArgumentsToLink(LandingPage.link_info.getPageLink(),page=pageNum)
 
+    def getHumanTime(self, milliseconds):
+        seconds = milliseconds / 1000
+        if seconds < 60:
+            if seconds == 1:
+                return "1 second"
+
+            return "%d seconds" % seconds
+
+        minutes = seconds / 60
+        if minutes < 60:
+            if minutes == 1:
+                return "1 minute"
+
+            return "%d minutes" % minutes
+
+        hours = minutes / 60
+        if hours < 24:
+            if hours == 1:
+                return "1 hour"
+
+            return "%d hours" % hours
+
+        days = hours / 24
+        if days == 1:
+            return "1 day"
+
+        return "%d days" % days
+
     @property
     def page_html_function(self):
         def func(templateArguments):
@@ -475,9 +503,14 @@ class LandingPage(Display):
             if pageNum > 0:
                 templateArguments.update({'pagination_previous' : LandingPage.getLandingPageLink(pageNum - 1)})
 
+            maxInactiveTime = Configuration.MAX_INSTANCE_INACTIVE_TIME_MS
+            maxTotalTime = Configuration.MAX_INSTANCE_TOTAL_AGE_MS
+
             templateArguments.update({'pagination' : pagination,
                                       'thumbnail_span' : thumbnailSpan,
-                                      'build_instance_link' : OAuthSignIn.link_info.getPageLink()})
+                                      'build_instance_link' : OAuthSignIn.link_info.getPageLink(),
+                                      'maxInactiveTime' : self.getHumanTime(maxInactiveTime),
+                                      'maxTotalTime' : self.getHumanTime(maxTotalTime)})
 
             return template('landing-page.tpl',templateArguments)
         return func
