@@ -296,7 +296,11 @@ if __name__ == '__main__':
                              keywords,
                              instanceSetupCode,
                              startTime,
-                             temporal)
+                             temporal,
+
+                             # Critical because it once worked, if it fails when we restarted
+                             # then maybe our server lost network connectivity.
+                             isCritical = True)
 
              # can delete, was debugging indexes.
              if args.rebuild_instance_indexes:

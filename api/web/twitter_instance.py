@@ -89,7 +89,8 @@ class TwitterInstance(Timestamped):
                  keywords,
                  instanceSetupCode,
                  startTime = None,
-                 lastTemporalTimeIdBySource = None):
+                 lastTemporalTimeIdBySource = None,
+                 isCritical = False):
         super(TwitterInstance, self).__init__(startTime)
 
         logger.debug('Instance is %dms old' % self.construct_age)
@@ -143,6 +144,9 @@ class TwitterInstance(Timestamped):
         except TwitterSession.SessionException as e:
             problemStr = 'Failed to establish twitter connection to streaming API with oauth: %s - instance could not be started, reason: %s' % (unicode(self.oauth), e)
             logger.error(problemStr)
+
+            if isCritical:
+                raise Exception('Instance failed to startup while starting server')
 
             self.shutdownInstance()
             self.setup_error = problemStr
