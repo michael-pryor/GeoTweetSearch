@@ -147,12 +147,13 @@ def leafTemporalEntry(collection, time, length, source, destinationsInc, increme
             for destination, incBy in providerIdData.iteritems():
                 incDic['destination.%s.%s' % (providerId,unicode(destination))] = incBy
 
-        if increment:
-            cacheUpdate = {'$inc' : incDic}
-        else:
-            cacheUpdate = {'$set' : incDic}
+        if len(incDic) > 0:
+            if increment:
+                cacheUpdate = {'$inc' : incDic}
+            else:
+                cacheUpdate = {'$set' : incDic}
 
-        collection.update(cacheId, cacheUpdate, upsert=True)
+            collection.update(cacheId, cacheUpdate, upsert=True)
 
 def mergeCacheData(mergeSource, mergeDestination):
     for level1, dataLevel1 in mergeSource.iteritems():

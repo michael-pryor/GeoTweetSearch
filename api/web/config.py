@@ -6,8 +6,8 @@ MODULE_PATH = getModulePath(__file__)
 STATIC_PATH = MODULE_PATH + '/static'
 TEMPLATE_PATH = MODULE_PATH + '/views'
 
-WEBSITE_ROOT_HTTP = 'http://' + Configuration.WEBSITE_ROOT
-WEBSITE_ROOT_WEBSOCKET = 'ws://' + Configuration.WEBSITE_ROOT
+WEBSITE_ROOT_HTTP = 'https://' + Configuration.WEBSITE_ROOT
+WEBSITE_ROOT_WEBSOCKET = 'wss://' + Configuration.WEBSITE_ROOT
 
 PROBLEM_ROUTE = '/problem'
 PROBLEM_ROUTE_HTTP = WEBSITE_ROOT_HTTP + PROBLEM_ROUTE

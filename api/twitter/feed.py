@@ -49,6 +49,7 @@ class TwitterSession(object):
 
         self._session = requests.session()
         self._session.auth = oauth
+
         self.twitter_authentication = twitterAuthentication
 
         if twitterInstance is not None:
@@ -220,7 +221,8 @@ class TwitterSession(object):
         return results
 
     def follow(self, userIds=None, keywords=None, locations=None, feedId=None):
-        data = {}
+        # Unsure if this has any impact.. but just in case.
+        data = {'tweet_mode' : 'extended'}
 
         if userIds is not None:
             data['follow'] = ','.join(userIds)
@@ -242,6 +244,7 @@ class TwitterSession(object):
             try:
                 response =  self._session.post('https://stream.twitter.com/1.1/statuses/filter.json',
                                                data,
+                                               params={'tweet_mode' : 'extended'}, # Unsure if this has any impact.. but just in case.
                                                stream=True,
                                                timeout=Configuration.TWITTER_FEED_TIMEOUT_SECONDS)
 
@@ -1163,7 +1166,6 @@ class Tweet(Hashable, Timestamped):
         if twitterSession is not None:
             assert isinstance(twitterSession, TwitterSession)
 
-
         self.data = Tree.make(data)
         if not fromCache:
             self.data.applyFunctionInTree(reverse_list, ['coordinates', 'coordinates']) # for use with leaflet.
@@ -1237,6 +1239,15 @@ class Tweet(Hashable, Timestamped):
     @property
     def text(self):
         """ Returns the text of the status update """
+        fullText = self.data.getFromTree(['extended_tweet','full_text'])
+
+        if fullText is not None:
+            return fullText
+
+        fullText = self.data.getFromTree(['retweeted_status','extended_tweet','full_text'])
+        if fullText is not None:
+            return fullText
+
         return self.data.getFromTree(['text'])
 
     @property

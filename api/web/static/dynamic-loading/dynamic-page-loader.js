@@ -5,6 +5,7 @@ function getPage(url, onSuccess, onFail, onAlways) {
     function doCall() {
            $.ajax(url, {type: 'GET',
                         dataType: 'json',
+                        //async: false,
                         timeout:10000,
                         retryLimit:10,
                         retryCount:0})
@@ -34,5 +35,5 @@ function getPage(url, onSuccess, onFail, onAlways) {
                     }
               })
     }
-    doCall();
+    setTimeout(doCall, 100);
 }

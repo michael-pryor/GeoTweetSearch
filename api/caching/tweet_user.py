@@ -13,7 +13,6 @@ from api.twitter.feed import User, Tweet, Place, buildAnalyserFromName
 
 logger = logging.getLogger(__name__)
 
-
 def _initCollection(collectionName):
     logger.info('Initializing collection: %s' % collectionName)
     _initializeUsePower2(collectionName)
@@ -303,7 +302,7 @@ def writeUserToCache(user, doUpdate):
     # and we don't really need to do provider ID too since it is extremely rare
     # that two providers will have the same place ID. Also note I had some trouble
     # getting MongoDB to use an index with provider ID in it (not sure why, but it
-    # wouldn't use the index).
+    # wouldn't use the index properly, see: http://stackoverflow.com/questions/41085666/mongodb-explains-totalkeysexamined-more-than-limit).
     collection.ensure_index([('is_followers_loaded', pymongo.ASCENDING), ('timestamp', pymongo.ASCENDING)], sparse = True)
     collection.ensure_index([('geocode.placeId', pymongo.ASCENDING), ('is_followers_loaded', pymongo.ASCENDING), ('timestamp', pymongo.ASCENDING)], sparse = True)
 
@@ -451,8 +450,8 @@ def cursorItemsFromCache(instanceId, getCollectionFunc, placeId=None, epochMsSta
         findDic.update({'timestamp' : timestampDic})
 
     if placeId is not None:
-        findDic.update({'geocode.placeId' : placeId['placeId'],
-                        'geocode.providerId' : placeId['providerId']})
+        findDic.update(dict({'geocode.providerId' : placeId['providerId'],
+                                    'geocode.placeId' : placeId['placeId']}))
 
     # MongoDB sometimes gets it wrong, particularly with geocode.placeId.
     if typeSpecificHint is None:

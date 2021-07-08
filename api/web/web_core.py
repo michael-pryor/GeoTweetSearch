@@ -9,7 +9,7 @@ __author__ = 'Michael Pryor'
 logger = logging.getLogger(__name__)
 
 def redirect_problem(errorDescription):
-    return redirect(Configuration.WEBSITE_ROOT + PROBLEM_ROUTE + '?error=%s' % errorDescription)
+    return redirect(PROBLEM_ROUTE + '?error=%s' % errorDescription)
 
 class WebApplication(object):
     def __init__(self):
