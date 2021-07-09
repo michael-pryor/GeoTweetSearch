@@ -825,9 +825,23 @@ class User(Hashable, Timestamped):
     def num_followers(self):
         return self.data.getFromTree(['followers_count'])
 
+
+    def __httpsUrl(self, url):
+        '''
+            Will return the string unchanged unless it begins with 'http', and then will return 'https' instead e.g.
+            http://hello-world will will return https://hello-world.
+        '''
+        if url is None:
+            return None
+
+        if url.startswith('http') and not url.startswith('https'):
+            return 'https' + url[len('http'):]
+
+        return url
+
     @property
     def profile_image_url(self):
-        return self.data.getFromTree(['profile_image_url'])
+        return self.__httpsUrl(self.data.getFromTree(['profile_image_url']))
 
     @property
     def follower_ids(self):
