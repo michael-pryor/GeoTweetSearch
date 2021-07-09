@@ -51,7 +51,7 @@ from geventwebsocket.handler import WebSocketHandler
 def startServer(ip, port, bottle_app):
     """ Start running server.
 
-        Browsers should point to http://IP:port.
+        Browsers should point to https://IP:port.
 
         @param ip IP to host server on.
         @param port Port to host server on."""

@@ -214,7 +214,7 @@
                         if(dataAuthToken == null || dataAuthSecret == null) {
                             console.warn('Invalid management authorisation detected for this instance');
                         } else {
-                            console.info('Management authorisation detected for this instance, auth token: ' + dataAuthToken + ', auth secret: ' + dataAuthSecret);
+                            console.info('Management authorisation detected for this instance');
                             $('#oauth_token').val(dataAuthToken);
                             $('#oauth_secret').val(dataAuthSecret);
 

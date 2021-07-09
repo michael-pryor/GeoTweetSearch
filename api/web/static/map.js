@@ -6,7 +6,7 @@ function getTileUrl(cloudKey, server, zoom, x, y) {
     x = undefArg(x, '{x}');
     y = undefArg(y, '{y}');
 
-    return 'http://a.tile.openstreetmap.org/' + zoom + '/' + x + '/' + y + '.png';
+    return 'https://a.tile.openstreetmap.org/' + zoom + '/' + x + '/' + y + '.png';
 }
 
 function setupMap($element, cloudKey, imageView) {
@@ -30,7 +30,7 @@ function setupMap($element, cloudKey, imageView) {
 
     L.tileLayer( getTileUrl(cloudKey),{   maxZoom: 18,
                                           styleId: STYLE_ID,
-                                          attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors' })
+                                          attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors' })
                 .addTo(theMap);
 
     return theMap;

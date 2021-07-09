@@ -302,7 +302,7 @@ def writeUserToCache(user, doUpdate):
     # and we don't really need to do provider ID too since it is extremely rare
     # that two providers will have the same place ID. Also note I had some trouble
     # getting MongoDB to use an index with provider ID in it (not sure why, but it
-    # wouldn't use the index properly, see: http://stackoverflow.com/questions/41085666/mongodb-explains-totalkeysexamined-more-than-limit).
+    # wouldn't use the index properly, see: https://stackoverflow.com/questions/41085666/mongodb-explains-totalkeysexamined-more-than-limit).
     collection.ensure_index([('is_followers_loaded', pymongo.ASCENDING), ('timestamp', pymongo.ASCENDING)], sparse = True)
     collection.ensure_index([('geocode.placeId', pymongo.ASCENDING), ('is_followers_loaded', pymongo.ASCENDING), ('timestamp', pymongo.ASCENDING)], sparse = True)
 

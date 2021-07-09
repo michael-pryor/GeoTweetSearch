@@ -28,7 +28,7 @@ def _geocodeFromExternalOMQ(query, countryCode=None, acceptableTypes=None):
 
     geocode_from_external_timer_omq.waitForTick()
     try:
-        url = "http://open.mapquestapi.com/nominatim/v1/search"
+        url = "https://open.mapquestapi.com/nominatim/v1/search"
         params = {
             "format": "json",
             "q": query,
@@ -73,7 +73,7 @@ def _geocodeFromExternalGoogle(query, countryCode=None, acceptableTypes=None):
 
     geocode_from_external_timer_google.waitForTick()
     try:
-        url = 'http://maps.googleapis.com/maps/api/geocode/json'
+        url = 'https://maps.googleapis.com/maps/api/geocode/json'
         params = {
             'address': query,
             'addressdetails' : 1,
